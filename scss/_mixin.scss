@@ -1,0 +1,177 @@
+// mixin
+
+
+/*************
+
+メディアクエリ定義
+
+**************/
+
+
+//@mediaのフォーマット
+//モバイルファースト　➡　min-widthから SPのmixinいらない
+//PCファースト　➡　max-widthから PCのmixinいらない
+
+
+//使わないほうは削除
+
+// 必要に応じて、調整用mixiをいれる
+
+
+
+/********* モバイルファーストmixin*********************/
+
+//PC(モバイルファースト)
+@mixin pc {
+    @media screen and (min-width: $widthPc) {
+        @content;
+    }
+}
+
+//タブレット（モバイルファースト）
+@mixin tab {
+    @media screen and (min-width: $widthTab) and (max-width: $widthPc) {
+        @content;
+    }
+}
+
+
+/********* PCファーストmixin*********************/
+
+//タブレット（PCファースト）
+@mixin tab {
+    @media screen and (max-width: $widthTab) and (min-width: $widthSP) {
+        @content;
+    }
+}
+
+
+
+//スマホ（PCファースト）
+@mixin SP {
+    @media screen and (max-width: $widthSP) {
+        @content;
+    }
+}
+
+
+
+
+/*************
+
+font-size定義
+
+**************/
+//$sizeにpx表示を入れて使う
+
+@mixin rem($size) {
+    font-size: $size + px; /*IE9以前に対応する*/
+    font-size: ($size / 16) + rem;
+}
+
+
+/*************
+
+flex定義
+
+**************/
+
+
+@mixin flex($justify: space-between, $wrap: nowrap) {
+    display: flex;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+}
+
+/*************
+
+その他mixin集
+
+**************/
+
+
+// 親要素に対して中央寄せ
+// 使用時は親要素にpostion:retative
+//x:横方向、y:縦方向, xy:縦横方向中央寄せ
+
+@mixin center($direction) {
+	position: absolute;
+	@if $direction==xy {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	@else if $direction==x {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@else if $direction==y {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+// absolute
+@mixin absolute($top:null, $right:null, $bottom:null, $left:null){
+    position: absolute;
+    @if $top != null{
+        top: $top;
+    }
+    @if $right != null{
+        right: $right;
+    }
+    @if $bottom != null{
+        bottom: $bottom;
+    }
+    @if $left != null{
+        left: $left;
+    }
+}
+
+
+// hover
+//引数にfalse指定で、新たに記述したスタイルのみ適用
+@mixin hover($flag: true){
+    @include min-screen(900px){
+        transition: .2s;
+        &:hover{
+            transition: .3s;
+            @if $flag == true{
+                opacity: .5;
+            }
+                @content
+            }
+    }
+}
+
+@mixin hoverall($focus:null,$opacity:null) {
+
+    transition: $anime_nomal;
+
+    @if $focus == none {
+        // focusが不要な場合
+        @if $opacity == none{
+            // focusと不透明度が不要な場合
+            &:hover,&:active{
+                opacity: $hover_opacity;
+                @content;
+            }
+        } @else{
+            // focus のみ不要な場合
+            &:hover,&:active{
+                opacity: $hover_opacity;
+                @content;
+            }
+        }
+    } @else if $opacity == none{
+        // 不透明度のみ不要な場合
+        &:hover,&:active,&:focus{
+            @content;
+        }
+    } @else {
+        &:hover,&:active,&:focus{
+            opacity: $hover_opacity;
+            @content;
+        }
+    } // @else
+} // @mixin
