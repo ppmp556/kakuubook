@@ -5,7 +5,7 @@ $(() => {
     // 実装しないものは適宜追加、削除
 
      // ハンバーガーメニュー
-    $('#js-nav_toggle').click(() => {
+    $('#nav_toggle').click(() => {
         $('.nav_line').toggleClass('clicked');
         $('.nav_ham').toggleClass('clicked');
         $('.nav_list').toggleClass('clicked');
@@ -30,7 +30,7 @@ $(() => {
     let nowPage = 0;
     let nextPage = 1;
 
-    const slides = $("#js-mv_slide").find("img");
+    const slides = $("#kv_slide").find("img");
     const slideLength = slides.length;
 
     const fadeTime = 1500;

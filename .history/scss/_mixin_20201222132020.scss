@@ -36,6 +36,24 @@
 }
 
 
+/********* PCファーストmixin*********************/
+
+//タブレット（PCファースト）
+@mixin tab {
+    @media screen and (max-width: $widthTab) and (min-width: $widthSP) {
+        @content;
+    }
+}
+
+
+
+//スマホ（PCファースト）
+@mixin SP {
+    @media screen and (max-width: $widthSP) {
+        @content;
+    }
+}
+
 
 
 

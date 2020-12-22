@@ -19,6 +19,7 @@
 メディアクエリ定義
 
 **************/
+/********* モバイルファーストmixin*********************/
 /*************
 
 font-size定義
@@ -27,6 +28,11 @@ font-size定義
 /*************
 
 flex定義
+
+**************/
+/*************
+
+その他mixin集
 
 **************/
 body {
@@ -44,6 +50,15 @@ body {
           box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
 .overall {
   font-family: "Yu Gothic", YuGothic, "Hiragino Kaku Gothic Pro", "YuGothic", "Meiryo", verdana, "Osaka", "MS PGothic", Sans-Serif, "Yu Mincho", YuMincho, "MS P Mincho", serif;
   background-color: #fffff6;
@@ -52,7 +67,6 @@ body {
 .container {
   width: 90%;
   margin: 0 auto;
-  /* position: relative; */
   overflow: hidden;
 }
 
@@ -84,9 +98,9 @@ body {
 }
 
 .section_ttl {
-  font-size: 18px;
+  font-size: 36px;
   /*IE9以前に対応する*/
-  font-size: 1.125rem;
+  font-size: 2.25rem;
   display: block;
   text-align: center;
 }
