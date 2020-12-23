@@ -104,7 +104,6 @@ nav
         color: $cWhite;
         line-height: 3;
         padding-right: 30px;
-        display: inline-block;
     }
 
     &_link {
@@ -117,7 +116,7 @@ nav
 
          //ナビホバー時の下線
         &::after {
-            display: inline-block;
+            display: block;
             position: absolute;
             bottom: -5px;
             left: 0;

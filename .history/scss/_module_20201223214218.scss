@@ -12,7 +12,6 @@ nav
 
 
     &_list {
-        width: 100%;
         position: absolute;
         right: -1000px;
         display: flex;
@@ -100,11 +99,10 @@ nav
     &_item {
         text-align: center;
         margin-top: 50px;
-        @include rem(14);
-        color: $cWhite;
+        @include rem(24);
+        // font-size: 2.5rem;
         line-height: 3;
         padding-right: 30px;
-        display: inline-block;
     }
 
     &_link {
@@ -117,7 +115,6 @@ nav
 
          //ナビホバー時の下線
         &::after {
-            display: inline-block;
             position: absolute;
             bottom: -5px;
             left: 0;

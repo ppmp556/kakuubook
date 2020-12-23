@@ -10,16 +10,10 @@ header
     width: 100%;
     line-height: 90px;
     padding: 0 20px;
-    background-color: $cBlack;
+    background-color: red;
     position: absolute;
     top: 0;
-    // overflow: hidden;
-    z-index: 99;
-
-    &_ttl {
-        @include rem(16);
-        color: $cWhite;
-    }
+    overflow: hidden;
 }
 
 
@@ -32,28 +26,8 @@ fv
 
 *****************************************:*/
 
-.top_mv {
-    position: relative;
-    
-    &_imgbox{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 10;
 
 
-    }
-}
-
-.mv_img {
-    display: block;
-}
-
-.main_container {
-
-}
 
 
 
